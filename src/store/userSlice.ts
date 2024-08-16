@@ -4,14 +4,14 @@ interface UserState {
   email: string;
   isAuthenticated: boolean;
   Uid: string | null;
-  token: string | null; // Add token here
+  token: string | null;
 }
 
 const initialState: UserState = {
-  email: localStorage.getItem("email") || "",
-  isAuthenticated: !!localStorage.getItem("token"),
-  Uid: localStorage.getItem("Uid") || null,
-  token: localStorage.getItem("token") || null, // Initialize token here
+  email: typeof window !== "undefined" ? localStorage.getItem("email") || "" : "",
+  isAuthenticated: typeof window !== "undefined" ? !!localStorage.getItem("token") : false,
+  Uid: typeof window !== "undefined" ? localStorage.getItem("Uid") || null : null,
+  token: typeof window !== "undefined" ? localStorage.getItem("token") || null : null,
 };
 
 const userSlice = createSlice({
@@ -26,20 +26,24 @@ const userSlice = createSlice({
       state.Uid = action.payload.Uid;
       state.token = action.payload.token;
       state.isAuthenticated = true;
-      // Save to local storage
-      localStorage.setItem("email", action.payload.email);
-      localStorage.setItem("Uid", action.payload.Uid);
-      localStorage.setItem("token", action.payload.token);
+      if (typeof window !== "undefined") {
+        // Save to local storage
+        localStorage.setItem("email", action.payload.email);
+        localStorage.setItem("Uid", action.payload.Uid);
+        localStorage.setItem("token", action.payload.token);
+      }
     },
     logout: (state) => {
       state.email = "";
       state.Uid = null;
       state.token = null;
       state.isAuthenticated = false;
-      // Clear local storage
-      localStorage.removeItem("email");
-      localStorage.removeItem("Uid");
-      localStorage.removeItem("token");
+      if (typeof window !== "undefined") {
+        // Clear local storage
+        localStorage.removeItem("email");
+        localStorage.removeItem("Uid");
+        localStorage.removeItem("token");
+      }
     },
   },
 });

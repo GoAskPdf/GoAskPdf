@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "../../assets/logo.png";
 import { Link } from "react-scroll";
@@ -26,12 +26,15 @@ const Navbar = () => {
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
-    console.log("clicked menu");
   };
 
   const handelLogout = () => {
     dispatch(logout());
   };
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, []);
 
   return (
     <nav className="flex items-center justify-between px-4 py-2 relative bg-black text-white">
@@ -58,23 +61,23 @@ const Navbar = () => {
       </div>
       <div className="hidden md:flex">
         {isAuth ? (
-          <>
+          <div>
             <button
               onClick={handelLogout}
               className="px-4 py-2 bg-yellow-400 text-black rounded-md font-bold"
             >
               Log Out
             </button>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <Links
               href={"/sign-up"}
               className="px-4 py-2 bg-yellow-400 text-black rounded-md font-bold"
             >
               Sign Up
             </Links>
-          </>
+          </div>
         )}
         {/* <Links
           href={"/sign-up"}

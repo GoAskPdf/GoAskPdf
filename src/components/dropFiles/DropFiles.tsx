@@ -37,7 +37,6 @@ const DropFiles = (props:any) => {
   useEffect(()=>{
     const data = ()=>{
       const token = localStorage.getItem('Uid');
-      console.log(token);
       setUid(token);
     }
     data();

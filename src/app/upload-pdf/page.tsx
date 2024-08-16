@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 
 const Page = () => {
-  const [loader, setLoader] = useState(false);
   const router = useRouter();
   const isAuthenticated = useSelector(
     (state: RootState) => state.user.isAuthenticated
@@ -15,18 +14,9 @@ const Page = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      alert("Please login to upload files");
-      setTimeout(() => {
-        router.push("/sign-in");
-      }, 3000);
+      router.push("/sign-in");
     }
   }, [isAuthenticated, router]);
-
-  if (!isAuthenticated) {
-    return (
-      <div className="text-5xl text-center text-white mt-20">Loading...</div>
-    );
-  }
 
   return (
     <div className="flex flex-col justify-center items-center h-screen">
