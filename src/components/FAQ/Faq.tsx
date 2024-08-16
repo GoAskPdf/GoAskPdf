@@ -30,7 +30,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="bg-black text-white p-8 lg:p-20">
+    <div className="bg-black text-white p-8 lg:p-20" id="faqs">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold mb-4">
           Frequently Asked <br /> Questions

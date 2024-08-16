@@ -1,3 +1,4 @@
+"use client";
 import Details from "@/components/Details/Details";
 import FAQ from "@/components/FAQ/Faq";
 import HeroSection from "@/components/HeroSection/HeroSection";
@@ -9,6 +10,8 @@ import PowerAiCHat from "@/components/PowerAiChat/PowerAiChat";
 import PricingTable from "@/components/PriceTable/PriceTable";
 import TryItSection from "@/components/TryItSection/TryItSection";
 import useAuth from "@/customHooks/useAuth";
+import { GoToTop } from "go-to-top-react";
+
 export default function Home() {
   // const [authState, setAuthState] = useAuth();  // Destructure if returning an array
   // console.log(authState);
@@ -26,6 +29,7 @@ export default function Home() {
         <InformationScreen />
         <PricingTable />
         <FAQ />
+        <GoToTop className="hidden lg:block" />
       </div>
     </>
   );

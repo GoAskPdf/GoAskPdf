@@ -3,9 +3,13 @@ import React from "react";
 import Image from "next/image";
 import TryImage from "@/assets/Tryit.png";
 import Button from "../ReusableComponents/Button";
+import { useRouter } from "next/navigation";
 
 const TryItSection = () => {
-  const handleClick = () => {};
+  const route = useRouter();
+  const handleClick = () => {
+    route.push("/sign-up");
+  };
 
   return (
     <div className="relative w-full h-80 md:h-[500px]">
@@ -31,7 +35,10 @@ const TryItSection = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
           <Button btnName="Sign Up" handleClick={handleClick} />
-          <div className="bg-white text-black px-4 py-2 rounded-md text-center cursor-pointer">
+          <div
+            className="bg-white text-black px-4 py-2 rounded-md text-center cursor-pointer"
+            onClick={() => route.push("/upload-pdf")}
+          >
             Try It
           </div>
         </div>

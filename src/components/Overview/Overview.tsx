@@ -11,7 +11,10 @@ import Button from "../ReusableComponents/Button";
 const Overview = () => {
   const handleClick = () => {};
   return (
-    <div className=" py-10 mt-[50px] px-5 md:px-20 lg:px-40 flex flex-col md:flex-row items-center">
+    <div
+      className=" py-10 mt-[50px] px-5 md:px-20 lg:px-40 flex flex-col md:flex-row items-center"
+      id="how-it-works"
+    >
       <div className="md:w-1/2 md:pr-10 text-center md:text-left">
         <h1 className="text-3xl font-bold mb-4">
           Ask Questions, Get Accurate Answers from PDFs

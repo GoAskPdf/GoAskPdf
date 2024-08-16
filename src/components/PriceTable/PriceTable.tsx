@@ -3,7 +3,7 @@ import { FaCheck } from "react-icons/fa";
 
 const PriceTable = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8" id="pricing">
       <div className="mb-12 text-center md:text-left">
         <h1 className="text-4xl font-bold text-gray-800 mt-[10rem]">
           Choose your plan
